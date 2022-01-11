@@ -1,0 +1,11 @@
+{
+  "name": "Subharmonicon Sequencer",
+  "shortName": "Subharmonicon",
+  "startURL": "./",
+  "theme": "#111111",
+  "generateIconOptions": {
+    "baseIcon": "./src/icon.png",
+    "sizes": [192, 384, 512],
+    "genFavicons": true
+  }
+}
