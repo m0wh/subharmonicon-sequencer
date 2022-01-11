@@ -53,6 +53,7 @@ body {
 
           &.active .led {
             background-color: #f24;
+            box-shadow: 0 0 10px #f00;
           }
         }
       }
@@ -146,5 +147,6 @@ button {
 
   &.active {
     background-color: #f24;
+    box-shadow: 0 0 10px #f00;
   }
 }
