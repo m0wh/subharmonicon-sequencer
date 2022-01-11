@@ -1,0 +1,36 @@
+{
+  "name": "repo-name",
+  "version": "1.0.0",
+  "description": "repo description",
+  "scripts": {
+    "start": "parcel src/index.html --open",
+    "dev": "parcel src/index.html --open",
+    "build": "parcel build src/index.html --public-url .",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d dist"
+  },
+  "repository": "git@github.com:m0wh/repo-name.git",
+  "author": "Malo Widerspach <hello@mowh.fr>",
+  "license": "MIT",
+  "devDependencies": {
+    "@parcel/config-default": "^2.0.1",
+    "@parcel/transformer-sass": "2.0.1",
+    "@parcel/transformer-typescript-tsc": "^2.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.20.0",
+    "@typescript-eslint/parser": "^2.20.0",
+    "eslint": "^6.8.0",
+    "eslint-config-standard": "^14.1.0",
+    "eslint-plugin-import": "^2.20.1",
+    "eslint-plugin-node": "^11.0.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "gh-pages": "^2.2.0",
+    "parcel": "^2.0.1",
+    "sass": "^1.25.0",
+    "typescript": "^3.8.2"
+  },
+  "browserslist": "> 0.5%, not dead",
+  "dependencies": {
+    "tone": "^14.8.36"
+  }
+}

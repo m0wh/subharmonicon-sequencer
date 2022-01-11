@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello World</title>
+  <link rel="stylesheet" href="./style.scss">
+</head>
+<body>
+  <div class="subh-seq">
+    <div class="vcos">
+      <button class="active">VCO 1</button>
+      <button class="active">VCO 2</button>
+      <button class="active">KICK</button>
+    </div>
+    
+    <div class="sequencers">
+      <div class="sequencer">
+        <h2>Sequencer 1</h2>
+        <div class="sequencer__notes">
+          <input type="text">
+          <input type="text">
+          <input type="text">
+          <input type="text">
+        </div>
+
+        <div class="sequencer__leds">
+          <div><div class="led"></div></div>
+          <div><div class="led"></div></div>
+          <div><div class="led"></div></div>
+          <div><div class="led"></div></div>
+        </div>
+      </div>
+
+      <div class="sequencer">
+        <h2>Sequencer 2</h2>
+        <div class="sequencer__notes">
+          <input type="text">
+          <input type="text">
+          <input type="text">
+          <input type="text">
+        </div>
+
+        <div class="sequencer__leds">
+          <div><div class="led"></div></div>
+          <div><div class="led"></div></div>
+          <div><div class="led"></div></div>
+          <div><div class="led"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="polyrythm">
+      <h2>Polyrythms</h2>
+      <div class="rythms">
+        <input type="number" min="1" max="16" step="1">
+        <input type="number" min="1" max="16" step="1">
+        <input type="number" min="1" max="16" step="1">
+        <input type="number" min="1" max="16" step="1">
+      </div>
+
+      <div class="selector">
+        <div><button>SEQ 1</button></div>
+        <div><button>SEQ 1</button></div>
+        <div><button>SEQ 1</button></div>
+        <div><button>SEQ 1</button></div>
+      </div>
+
+      <div class="selector">
+        <div><button>SEQ 2</button></div>
+        <div><button>SEQ 2</button></div>
+        <div><button>SEQ 2</button></div>
+        <div><button>SEQ 2</button></div>
+      </div>
+    </div>
+
+    <div class="controls">
+      <input id="bpm" type="number" step="1">
+      <button id="play">Play</button>
+      <button id="reset">Reset</button>
+      <button id="xor">XOR</button>
+    </div>
+
+  </div>
+  <script type="module" src="./main.ts"></script>
+</body>
+</html>
