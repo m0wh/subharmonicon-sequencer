@@ -150,3 +150,32 @@ button {
     box-shadow: 0 0 10px #f00;
   }
 }
+
+.share {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  text-align: right;
+
+  button {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 8px;
+    height: 25px;
+    width: 60px;
+    border: none;
+    padding: 5px;
+  }
+
+  input {
+    text-transform: uppercase;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    font-size: 8px;
+    height: 15px;
+    border: none;
+    padding: 5px;
+    outline: none;
+  }
+}

@@ -1,4 +1,4 @@
-import * as Tone from 'tone';
+import * as Tone from 'tone'
 
 const dom = {
   sequencers: document.querySelectorAll('.sequencer__notes'),
@@ -12,7 +12,7 @@ const dom = {
   randomize: document.querySelector('#random'),
   vcos: document.querySelectorAll('.vcos > button'),
   shareButton: document.querySelector('#share'),
-  shareUrl: document.querySelector('#shareUrl'),
+  shareUrl: document.querySelector('#shareUrl') as HTMLInputElement
 }
 
 const lim = new Tone.Limiter(-1).toDestination()
@@ -30,6 +30,7 @@ let config = {
   polys: [16, 2, 5, 9],
   seq1: [false, true, true, true],
   seq2: [true, false, false, false],
+  xor: false
 }
 
 function randomize () {
@@ -56,6 +57,14 @@ function updateUI () {
   config.polys.forEach((rythm, i) => { dom.polyrythms[i].value = rythm.toString() })
   config.seq1.forEach((val, i) => { dom.selectors[0].querySelectorAll('button')[i].classList.toggle('active', val) })
   config.seq2.forEach((val, i) => { dom.selectors[1].querySelectorAll('button')[i].classList.toggle('active', val) })
+
+  // xor button
+  dom.xor.classList.toggle('active', config.xor)
+
+  // vcos
+  dom.vcos.forEach((btn, i) => {
+    btn.classList.toggle('active', !config.muted[i])
+  })
 }
 
 // set sequencer notes
@@ -67,7 +76,6 @@ config.polys.forEach((rythm, i) => { dom.polyrythms[i].value = rythm.toString() 
 config.seq1.forEach((val, i) => { dom.selectors[0].querySelectorAll('button')[i].classList.toggle('active', val) })
 config.seq2.forEach((val, i) => { dom.selectors[1].querySelectorAll('button')[i].classList.toggle('active', val) })
 
-let xor = false
 let time = 0
 let time1 = 0
 let time2 = 0
@@ -109,11 +117,11 @@ dom.selectors[1].querySelectorAll('button').forEach((btn, i) => {
 dom.shareButton.addEventListener('click', () => {
   dom.shareUrl.hidden = false
   window.location.hash = sequenceToString()
-  dom.shareUrl.value = window.location
+  dom.shareUrl.value = window.location.toString()
 })
 
 function doPlay (r, i) {
-  if (xor) return r.filter(n => i % n === 0).length === 1
+  if (config.xor) return r.filter(n => i % n === 0).length === 1
   return r.some(n => i % n === 0)
 }
 
@@ -162,25 +170,25 @@ dom.vcos.forEach((btn, i) => {
 })
 
 dom.xor.addEventListener('click', () => {
-  xor = !xor
-  dom.xor.classList.toggle('active', xor)
+  config.xor = !config.xor
+  dom.xor.classList.toggle('active', config.xor)
 })
 
-function sequenceToString() {
-  return btoa(JSON.stringify(config))
+function sequenceToString () {
+  return Buffer.from(JSON.stringify(config), 'utf-8').toString('base64')
 }
 
-function sequenceFromString(input) {
-  return JSON.parse(atob(input))
+function sequenceFromString (input) {
+  return JSON.parse(Buffer.from(input, 'base64').toString('utf-8'))
 }
 
 window.addEventListener('load', () => {
   if (window.location.hash.length > 0) {
     try {
-        config = sequenceFromString(window.location.hash.substr(1));
-        updateUI()
+      config = sequenceFromString(window.location.hash.substr(1))
+      updateUI()
     } catch (e) {
-        console.log(`failed to parse sequence in url: ${e}`);
+      console.log(`failed to parse sequence in url: ${e}`)
     }
   }
 })

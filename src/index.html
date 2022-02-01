@@ -80,10 +80,13 @@
       <button id="reset">Reset</button><br>
       <button id="xor">XOR</button>
       <button id="random">Random</button>
-      <button id="share">Share</button>
     </div>
 
-    <input hidden=true readonly='readonly' onclick='this.select()' id="shareUrl">
+
+    <div class="share">
+      <input class="share-url" hidden=true readonly='readonly' onclick='this.select()' id="shareUrl">
+      <button id="share">Share</button>
+    </div>
 
   </div>
   <script type="module" src="./main.ts"></script>
