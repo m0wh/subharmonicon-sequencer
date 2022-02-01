@@ -10,3 +10,7 @@ yarn start # run dev server
 yarn build # builds your site
 yarn deploy # builds and deploys your site to gh-pages branch
 ```
+
+## Contributors
+
+* [@wgreenberg](https://github.com/wgreenberg) | share button
